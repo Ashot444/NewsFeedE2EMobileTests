@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.junit.Assert;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.testng.AssertJUnit.assertEquals;
 
 @Epic(value = "Login page.")
@@ -24,7 +26,7 @@ public class LoginTest extends Methods {
         String defaultEmail = "9default4575@mail.ru";
         String defaultPassword = "90123456787";
 
-        Thread.sleep(1000);
+        this.driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
         login.loginEmail.sendKeys(defaultEmail);
         login.loginPassword.sendKeys(defaultPassword);
         login.loginButton.click();
@@ -45,7 +47,7 @@ public class LoginTest extends Methods {
         String defaultEmail = "9default4575";
         String defaultPassword = "12345";
 
-        Thread.sleep(1000);
+        this.driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
         login.loginEmail.sendKeys(defaultEmail);
         login.loginPassword.sendKeys(defaultPassword);
         login.loginButton.click();
@@ -65,7 +67,7 @@ public class LoginTest extends Methods {
         String defaultEmail = "9default4575@mail.ru";
         String defaultPassword = "";
 
-        Thread.sleep(1000);
+        this.driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
         login.loginEmail.sendKeys(defaultEmail);
         login.loginPassword.sendKeys(defaultPassword);
         login.loginButton.click();

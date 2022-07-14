@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.AssertJUnit.assertNotNull;
 
@@ -23,7 +24,7 @@ public class PaginationNewsTest extends Methods {
 
         this.login();
         profilePage.NewsButton.click();
-        Thread.sleep(5000);
+        this.driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
         HashMap<String, String> scrollObject = new HashMap<String, String>();
 
         int t = -1;

@@ -7,6 +7,8 @@ import io.qameta.allure.Story;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.testng.AssertJUnit.assertEquals;
 
 @Epic(value = "Registration page.")
@@ -26,9 +28,9 @@ public class RegistrationTest extends Methods {
         String defaultPassword = generateRandomHexString(7);
         String defaultName = generateRandomHexString(5);
 
-        Thread.sleep(1000);
+        this.driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
         registration.registerButton.click();
-        Thread.sleep(3000);
+        this.driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
         registration.avatarButton.click();
         registration.avatarSelectImg.click();
         registration.chooseButton.click();
@@ -39,10 +41,9 @@ public class RegistrationTest extends Methods {
         registration.passwordInput.sendKeys(defaultPassword, Keys.ENTER);
 
         registration.registerButton.click();
-
-        Thread.sleep(1000);
+        this.driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
         registration.goBackButton.click();
-        Thread.sleep(50000);
+        this.driver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
         profilePage.textHello.click();
         String name = profilePage.textHello.getAttribute("name");
 
@@ -63,9 +64,9 @@ public class RegistrationTest extends Methods {
         String defaultPassword = generateRandomHexString(7);
         String defaultName = generateRandomHexString(5);
 
-        Thread.sleep(1000);
+        this.driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
         registration.registerButton.click();
-        Thread.sleep(3000);
+        this.driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
         registration.avatarButton.click();
         registration.avatarSelectImg.click();
         registration.chooseButton.click();
@@ -76,10 +77,10 @@ public class RegistrationTest extends Methods {
 
         registration.registerButton.click();
 
-        Thread.sleep(1000);
+        this.driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.SECONDS);
         registration.goBackButton.click();
 
-        Thread.sleep(5000);
+        this.driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 
         String logRegText = login.logRegText.getText();
 

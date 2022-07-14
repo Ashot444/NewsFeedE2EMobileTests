@@ -7,6 +7,8 @@ import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -29,7 +31,7 @@ public class UpdateUserTest  extends Methods {
         this.login();
         profilePage.myProfileButton.click();
         myProfilePage.updateButton.click();
-        Thread.sleep(10000);
+        this.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         updatePage.avatarButton.click();
         updatePage.selectAvatarButton.click();
         updatePage.chooseButton.click();
@@ -63,7 +65,7 @@ public class UpdateUserTest  extends Methods {
         this.login();
         profilePage.myProfileButton.click();
         myProfilePage.updateButton.click();
-        Thread.sleep(10000);
+        this.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         updatePage.avatarButton.click();
         updatePage.selectAvatarButton.click();
         updatePage.chooseButton.click();

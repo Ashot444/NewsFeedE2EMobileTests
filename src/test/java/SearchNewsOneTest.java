@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -23,7 +24,7 @@ public class SearchNewsOneTest extends Methods{
 
         this.login();
         profilePage.NewsButton.click();
-        Thread.sleep(5000);
+        this.driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 
 
         List<String> titleNewsAr = new ArrayList<>();
